@@ -1,0 +1,34 @@
+body {
+  background-color: rgb(28, 32, 32);
+}
+.content-table {
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  width: 100%;
+  table-layout: fixed;
+  overflow: none;
+  border-collapse: auto;
+  border-spacing: 10px;
+}
+
+.content-table thead tr {
+  background-color: rgb(28, 32, 32);
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  background-color: rgb(37, 41, 41);
+  color: white;
+}
+
+.content-table th tr td {
+  width: calc(100% / 3); /* set the width of each column to 33.33% */
+}
