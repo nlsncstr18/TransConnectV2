@@ -1,9 +1,5 @@
 import React, { useEffect } from "react";
 import mapboxgl from "mapbox-gl";
-import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
-
-import "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css";
-import "mapbox-gl/dist/mapbox-gl.css";
 
 const MAPBOX_ACCESS_TOKEN =
   "pk.eyJ1IjoibW5zY2FzdHJvIiwiYSI6ImNsZzZuNGQ2bDBmNDYzZHFscnhmMnZtN2EifQ.mbSIm4YFD7X-XELOOByNcQ";
@@ -14,27 +10,14 @@ const App = () => {
 
     const map = new mapboxgl.Map({
       container: "map",
-      style: "mapbox://styles/mapbox/dark-v11",
-      center: [-79.4512, 43.6568],
-      zoom: 13,
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [121.774, 12.8797], // Center the map to Manila, Philippines
+      zoom: 10,
+      maxBounds: [
+        [115.6117, 4.5667], // Southwest coordinates of the Philippines
+        [126.6025, 20.3119], // Northeast coordinates of the Philippines
+      ],
     });
-
-    // map.addControl(
-    //   new MapboxDirections({
-    //     accessToken: mapboxgl.accessToken,
-    //   }),
-    //   "top-left"
-    // );
-
-    map.addControl(
-      new mapboxgl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true,
-        },
-        trackUserLocation: true,
-      }),
-      "top-right"
-    );
   }, []);
 
   return (

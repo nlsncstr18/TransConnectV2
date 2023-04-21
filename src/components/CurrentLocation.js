@@ -1,41 +1,23 @@
 import React, { useState, useEffect } from "react";
-import mapboxgl from "mapbox-gl";
 
-function CurrentLocation() {
-  mapboxgl.accessToken =
-    "pk.eyJ1IjoibW5zY2FzdHJvIiwiYSI6ImNsZzZuNGQ2bDBmNDYzZHFscnhmMnZtN2EifQ.mbSIm4YFD7X-XELOOByNcQ";
-  const [location, setLocation] = useState("");
+function App() {
+  const [location, setLocation] = useState({});
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { longitude, latitude } = position.coords;
-        fetch(
-          `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=${mapboxgl.accessToken}`
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            const city = data.features[0].context.find((context) =>
-              context.id.includes("place")
-            ).text;
-            const country = data.features[0].context.find((context) =>
-              context.id.includes("country")
-            ).text;
-            setLocation(`${city}, ${country}`);
-          });
-      },
-      (error) => {
-        console.error(error);
-        setLocation("Unable to retrieve your location");
-      }
-    );
+    async function fetchLocation() {
+      const response = await fetch("http://192.168.100.195:5000/gps");
+      const data = await response.json();
+      setLocation(data);
+    }
+    fetchLocation();
   }, []);
 
   return (
     <div>
-      <p>{location}</p>
+      <p>Latitude: {location.latitude}</p>
+      <p>Longitude: {location.longitude}</p>
     </div>
   );
 }
 
-export default CurrentLocation;
+export default App;

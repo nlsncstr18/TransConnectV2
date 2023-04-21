@@ -18,6 +18,8 @@ function Transactions(props) {
             <th>From</th>
             <th>To</th>
             <th>Fare</th>
+            <th>Date</th>
+            <th>Time</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +28,8 @@ function Transactions(props) {
               <td>{fare.from_location}</td>
               <td>{fare.to_location}</td>
               <td>₱{fare.fare}</td>
+              <td>{fare.date}</td>
+              <td>{fare.time}</td>
             </tr>
           ))}
         </tbody>

@@ -5,9 +5,11 @@
   align-items: center;
   position: absolute;
   font-weight: bold;
-  color: rgb(227, 239, 239);
+  color: rgb(4, 4, 4);
+  padding: 20px;
+  text-align: center;
 
-  font-size: 12px;
+  font-size: 15px;
 }
 .map-container {
   width: auto;
@@ -41,7 +43,7 @@
     top: 9%;
     left: 50%;
     width: 250px;
-    height: 70px;
+    height: 170px;
 
     backdrop-filter: blur(20px);
     border-radius: 20px;
@@ -109,10 +111,10 @@
 }
 @media screen and (orientation: landscape) {
   .overlay {
-    top: 15%;
+    top: 3%;
     left: 50%;
     width: 250px;
-    height: 70px;
+    height: 170px;
     backdrop-filter: blur(20px);
     border-radius: 20px;
     background: transparent;

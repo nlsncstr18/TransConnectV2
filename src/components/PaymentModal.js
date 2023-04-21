@@ -34,9 +34,15 @@ function PaymentModal() {
         fare: sum,
         from_location: from_location,
         to_location: to_location,
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString(),
       };
       fares.push(fare);
       localStorage.setItem("fares", JSON.stringify(fares));
+
+      setFrom("From");
+      setTo("To");
+      setSum(0);
     }
   }
 
