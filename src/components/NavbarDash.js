@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
+import DateTime from "./DateTime";
 import { useNavigate } from "react-router-dom";
 const NavbarDash = () => {
   const navigate = useNavigate();
@@ -26,6 +26,9 @@ const NavbarDash = () => {
               Transactions
             </Nav.Link>
             <Nav.Link onClick={handleOnclickAboutUs}>About Us</Nav.Link>
+          </Nav>
+          <Nav>
+            <DateTime />
           </Nav>
         </Container>
       </Navbar>

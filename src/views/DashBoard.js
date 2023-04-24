@@ -9,7 +9,7 @@ import DateTime from "../components/DateTime";
 
 import PesoIcon from "../assets/icons/peso.png";
 import PaymentModal from "../components/PaymentModal";
-import CurrentLocation from "../components/CurrentLocation";
+// import CurrentLocation from "../components/CurrentLocation";
 
 const DashBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,11 +25,6 @@ const DashBoard = () => {
       </div>
       <div className="map-container">
         <Mapbox />
-
-        <div className="overlay">
-          <DateTime />
-          <CurrentLocation />
-        </div>
 
         <div className="payment-icon">
           <a href="#" onClick={handleToggleModal}>
