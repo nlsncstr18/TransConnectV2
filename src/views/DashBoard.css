@@ -26,6 +26,11 @@
   width: 30px;
   height: 30px;
 }
+.img-passenger-icon {
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+}
 .icons {
   border-radius: 15px;
 
@@ -38,77 +43,6 @@
   box-shadow: rgb(3, 3, 3) 0px 10px 36px 0px, rgb(0, 0, 0) 0px 0px 0px 1px;
 }
 
-@media screen and (orientation: portrait) {
-  .overlay {
-    top: 9%;
-    left: 50%;
-    width: 250px;
-    height: 170px;
-
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    background: transparent;
-    border: 1px solid rgb(189, 178, 178);
-    transform: translateX(-50%);
-  }
-  .icons-container {
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-    right: 0;
-    margin: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    flex-direction: column;
-    width: 50px;
-    height: 150px;
-  }
-
-  .icons:hover {
-    transform: scale(
-      1.3
-    ); /* this property increases the size of the icon by 20% on hover */
-    background: black;
-  }
-  .payment-icon {
-    border: 1px solid black;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    position: absolute;
-    top: 86%;
-    left: 50%;
-    margin-left: -50px;
-    width: 100px;
-    height: 40px;
-    background: rgb(24, 119, 24);
-    transition: all 0.2s ease-in-out;
-
-    -webkit-box-shadow: 0 10px 6px -6px #080707;
-    -moz-box-shadow: 0 10px 6px -6px #000000;
-    box-shadow: rgb(3, 3, 3) 0px 10px 36px 0px, rgb(0, 0, 0) 0px 0px 0px 1px;
-  }
-  .payment-icon:hover {
-    transform: scale(1.3);
-    background: rgb(0, 0, 0);
-  }
-
-  .date-time {
-    color: black;
-    font-weight: bolder;
-  }
-
-  .payment-icon {
-    top: 95%;
-    left: 50%;
-    margin-top: -20px;
-    margin-left: -50px;
-  }
-}
 @media screen and (orientation: landscape) {
   .overlay {
     top: 3%;
@@ -121,27 +55,35 @@
     border: 1px solid rgb(189, 178, 178);
     transform: translateX(-50%);
   }
-  .icons-container {
-    position: absolute;
+  .passenger-icon {
+    border-radius: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding: 20px;
-    right: 0;
-    margin: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    flex-direction: column;
-    width: 50px;
-    height: 150px;
+    position: absolute;
+    top: 20%;
+    right: 92%;
+    margin-left: -50px;
+    width: 100px;
+    height: 50px;
+    background: transparent;
+    transition: all 0.2s ease-in-out;
+    backdrop-filter: blur(20px);
+
+    -webkit-box-shadow: 0 10px 6px -6px #080707;
+    -moz-box-shadow: 0 10px 6px -6px #000000;
+    box-shadow: rgb(3, 3, 3) 0px 10px 36px 0px, rgb(0, 0, 0) 0px 0px 0px 1px;
+  }
+  .payment-icon:hover {
+    transform: scale(1.3);
+    background: rgb(0, 0, 0);
+  }
+  .passenger-icon:hover {
+    transform: scale(1.3);
+    background: rgb(0, 0, 0);
   }
 
-  .icons:hover {
-    transform: scale(
-      1.3
-    ); /* this property increases the size of the icon by 20% on hover */
-    background: black;
-  }
   .payment-icon {
     border: 1px solid black;
     border-radius: 20px;
@@ -162,15 +104,7 @@
     -moz-box-shadow: 0 10px 6px -6px #000000;
     box-shadow: rgb(3, 3, 3) 0px 10px 36px 0px, rgb(0, 0, 0) 0px 0px 0px 1px;
   }
-  .payment-icon:hover {
-    transform: scale(1.3);
-    background: rgb(0, 0, 0);
-  }
 
-  .date-time {
-    color: black;
-    font-weight: bolder;
-  }
   .payment-icon {
     top: 90%;
     left: 50%;

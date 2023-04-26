@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./PaymentModal.css";
 import Arrow from "../assets/icons/arrow.png";
 import DateTime from "./DateTime";
-import Transactions from "../views/Transactions";
 
 function PaymentModal() {
   const [from, setFrom] = useState("From");

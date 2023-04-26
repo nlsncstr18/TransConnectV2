@@ -27,7 +27,7 @@ const NavbarDash = () => {
             </Nav.Link>
             <Nav.Link onClick={handleOnclickAboutUs}>About Us</Nav.Link>
           </Nav>
-          <Nav>
+          <Nav className="text-light">
             <DateTime />
           </Nav>
         </Container>
