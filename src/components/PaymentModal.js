@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./PaymentModal.css";
 import Arrow from "../assets/icons/arrow.png";
 
@@ -12,6 +12,7 @@ function PaymentModal() {
   const [to_location, set_to_location] = useState("");
   const [distance, setDistance] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [locationCurrent, setlocationCurrent] = useState([]);
 
   const airconRate = { base: 13, perKm: 2.2 };
   //mapbox direcitons without
@@ -26,6 +27,20 @@ function PaymentModal() {
       instructions: false,
     },
   });
+  const currentLocation = useCallback(async () => {
+    const response = await fetch("http://localhost:5000/random_coordinate");
+    const data = await response.json();
+    setlocationCurrent(data);
+  }, []);
+
+  const currentLocationRef = useRef(currentLocation);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      currentLocationRef.current();
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, [currentLocation]);
 
   const handleFrom = (e) => {
     setFrom(e.target.value);
@@ -87,6 +102,7 @@ function PaymentModal() {
       setSum(0);
       setDistance(0);
       setDuration(0);
+      console.log("current", locationCurrent);
 
       // directionsService
       //   .getDirections({
@@ -152,15 +168,10 @@ function PaymentModal() {
           <div className="payment-info">
             <label>
               <select className="option1" value={from} onChange={handleFrom}>
-                <option value="From" disabled selected>
+                <option disabled defaultValue={"From"}>
                   From:
                 </option>
-                <option
-                  className="text-danger font-weight-bold"
-                  value={JSON.stringify([
-                    120.98643366717101, 14.657172134647823,
-                  ])}
-                >
+                <option value={JSON.stringify(locationCurrent)}>
                   Current Location
                 </option>
 
@@ -282,7 +293,7 @@ function PaymentModal() {
 
             <label>
               <select className="option2" value={to} onChange={handleTo}>
-                <option value="To" disabled selected>
+                <option value="To" disabled defaultValue={"To"}>
                   To:
                 </option>
                 <option
